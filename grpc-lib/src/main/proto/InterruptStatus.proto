@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+
+option java_package = "com.lrbj.grpc.lib";
+
+
+service Interrupt{
+
+    rpc  getInterruptStatusData(RequestParam) returns (Message) {
+    }
+}
+
+message RequestParam {
+    string locationPark = 1;
+    string locationRegion = 2;
+    string locationBuilding = 3;
+}
+
+// the message
+message Message {
+      repeated data datalist = 1;
+  }
+
+ message data{
+       string applicationId = 1;
+      // 申请人用户
+      string applyUser = 2;
+      // 中断开始时间
+      sint64 interruptStartTime = 3;
+      // 中断截止时间
+      sint64 interruptEndTime = 4;
+      // 延期开始时间
+      sint64 extensionStartTime = 5;
+      // 延期截止时间
+      sint64 extensionEndTime = 6;
+      // 状态是否处于中断过程中
+      bool isIntrrupted = 7;
+      // 施工地点-园区
+      string locationPark = 8;
+      // 施工地点-区域
+      string locationRegion = 9;
+      // 施工地点-栋
+      string locationBuilding = 10;
+      message interruptProject{
+
+          repeated  string project =1;
+
+          string floors = 2;
+        }
+      repeated  interruptProject interruptProjects = 11;
+      }

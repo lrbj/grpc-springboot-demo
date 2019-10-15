@@ -17,4 +17,11 @@ public class GrpcClientController {
     public String printMessage(@RequestParam(defaultValue = "Susan") String name) {
         return grpcClientService.sendMessage(name);
     }
+
+    @RequestMapping("/test")
+    public Object printMessage(@RequestParam(defaultValue = "龙华园区") String region,
+                               @RequestParam(defaultValue = "A区") String park,
+                               @RequestParam(defaultValue = "A01") String building) {
+        return grpcClientService.getResult(null, null, null);
+    }
 }

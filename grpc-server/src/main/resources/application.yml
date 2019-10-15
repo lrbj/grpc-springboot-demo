@@ -1,6 +1,8 @@
 spring:
   application:
     name: local-grpc-server
+
 grpc:
   server:
-    port: 8001
+    port: 8002
+
